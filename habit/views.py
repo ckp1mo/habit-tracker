@@ -7,6 +7,8 @@ from habit.serializers import HabitSerializer
 
 
 class HabitCreateAPIView(generics.CreateAPIView):
+    """Создание привычки"""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated]
@@ -20,6 +22,8 @@ class HabitCreateAPIView(generics.CreateAPIView):
 
 
 class HabitListAPIView(generics.ListAPIView):
+    """Просмотр списка привычек"""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated]
@@ -33,24 +37,32 @@ class HabitListAPIView(generics.ListAPIView):
 
 
 class HabitRetrieveAPIView(generics.RetrieveAPIView):
+    """Детальный просмотр привычки"""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class HabitUpdateAPIView(generics.UpdateAPIView):
+    """Редактирование привычки"""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class HabitDeleteAPIView(generics.DestroyAPIView):
+    """Удаление привычки"""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class HabitPublicListAPIView(generics.ListAPIView):
+    """Просмотр всех публичных привычек"""
+
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
 

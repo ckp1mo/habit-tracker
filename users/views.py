@@ -5,6 +5,7 @@ from users.serializers import UserSerializer
 
 
 class UserCreateAPIView(generics.CreateAPIView):
+    """Создание пользователя"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
