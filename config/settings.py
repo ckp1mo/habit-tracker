@@ -89,9 +89,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': 'db',
     },
 }
 
@@ -165,13 +166,5 @@ CELERY_BEAT_SCHEDULE = {
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_URL = os.getenv('TELEGRAM_URL')
 
-CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:8000',  # Замените на адрес вашего фронтенд-сервера
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com",  # Замените на адрес вашего фронтенд-сервера
-    # и добавьте адрес бэкенд-сервера
-]
-
+CORS_ALLOWED_ORIGINS = ['http://localhost:8000']
 CORS_ALLOW_ALL_ORIGINS = False
